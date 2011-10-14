@@ -86,30 +86,21 @@ unset MAILCHECK       # I don't want my shell to warn me of incoming mail
 export TIMEFORMAT=$'\nreal %3R\tuser %3U\tsys %3S\tpcpu %P\n'
 export HISTIGNORE="&:bg:fg:ll:h"
 export HOSTFILE=$HOME/.hosts	# Put a list of remote hosts in ~/.hosts
+export HISTFILESIZE=100000
+export HISTCONTROL=eraseedups
 
 # Add bin to path
 export PATH="$PATH:$HOME/bin"
+export PATH="$PATH:/opt/local/bin/"
 
 
 # Try to keep environment pollution down, EPA loves us.
 unset use_color safe_term match_lhs
 
+
 #---------------
 # Shell prompt
 #---------------
-
-function fastprompt()
-{
-    unset PROMPT_COMMAND
-    case $TERM in
-        xterm*|rxvt*|Eterm|aterm|kterm|gnome )
-           PS1="${HILIT}[\h]$NC \W > \[\033]0;\${TERM} [\u@\h] \w\007\]" ;;
-	linux )
-           PS1="${HILIT}[\h]$NC \W > " ;;
-        *)
-           PS1="[\h] \W > " ;;
-    esac
-}
 
 function powerprompt()
 {
@@ -117,34 +108,36 @@ function powerprompt()
     {
         LOAD=$(uptime|sed -e "s/.*: \([^,]*\).*/\1/" -e "s/ //g")
         TIME=$(date +%H:%M:%S)
-	DATE=$(date)
-	echo -ne "\033]0;[${USER}@${HOSTNAME}] $PWD load: $LOAD  ${TIME}\007"
+DATE=$(date)
+echo -ne "\033]0;[${USER}@${HOSTNAME}] $PWD load: $LOAD ${TIME}\007"
     }
 
     PROMPT_COMMAND=_powerprompt
 
     case $TERM in
         xterm*|rxvt*|Eterm|aterm|kterm|gnome )
-	    if [ "$UID" == "0" ]; then
-		BLA="#"
-	    else
-		BLA=">"
-	    fi
-	    PS1="\[$CYAN\][\$TIME \[$YELLOW\]- \[$RED\]\$LOAD\[$CYAN\]]\[$NC\]\n\[$GREEN\][\u@\h]\[$BLUE\] \w \[$BLA\]\[$NC\] "
-#            PS1="${cyan}[\h \#] \W $BLA $NC\[\033]0;[\u@\h] \w \$TIME \$LOAD\007\]"
-#            PS1="${cyan}[\$TIME \$LOAD]$NC\n[\h \#] \W > \[\033]0;[\u@\h] \w\007\]"
-		;;
+if [ "$UID" == "0" ]; then
+BLA="#"
+else
+BLA=">"
+fi
+PS1="\[$CYAN\][\$TIME \[$YELLOW\]- \[$RED\]\$LOAD\[$CYAN\]]\[$NC\]\n\[$GREEN\][\u@\h]\[$CYAN\] \w \[$BLA\]\[$NC\] "
+# PS1="${cyan}[\h \#] \W $BLA $NC\[\033]0;[\u@\h] \w \$TIME \$LOAD\007\]"
+# PS1="${cyan}[\$TIME \$LOAD]$NC\n[\h \#] \W > \[\033]0;[\u@\h] \w\007\]"
+;;
         linux | screen )
             PS1="\[${cyan}\][\$TIME - \$LOAD]\[$NC\]\n[\h] \w > "
-		;;
+;;
         * )
             PS1="[\$TIME - \$LOAD]\n[\h] \w > "
-		;;
+;;
     esac
 }
 
-powerprompt     # this is the default prompt - might be slow
+powerprompt # this is the default prompt - might be slow
                 # If too slow, use fastprompt instead....
+
+
 
 #===============================================================
 #
@@ -158,16 +151,26 @@ powerprompt     # this is the default prompt - might be slow
 #===============================================================
 
 #-------------------
+# UCSD Aliases
+#-------------------
+alias starttest='~/Environments/Test/zinstance/bin/plonectl start'
+alias stoptest='~/Environments/Test/zinstance/bin/plonectl stop'
+
+alias gibbon='ssh gibbon -l sweaver'
+alias lemur='ssh lemur -l sweaver'
+alias capuchin='ssh capuchin -l sweaver'
+alias stageapp='ssh stageapp -l sweaver'
+alias testapp='ssh testapp -l sweaver'
+alias mb='ssh monkeybusiness -l sweaver'
+
+#-------------------
 # Personal Aliases
 #-------------------
-alias gen='php index.php ClientGuideGenerator'
-alias hc='ssh happycat'
 alias sw='ssh ssh.phx.nearlyfreespeech.net -l maximumsteve_stevenweaver'
-alias sd='sudo shutdown now'
 alias mpg123='mpg123-oss'
 alias play='vlc -I ncurses *.mp3'
-alias rm='rm -f'
 alias kf='killall firefox-bin'
+alias suod='sudo'
 
 
 case $OSTYPE in
@@ -190,17 +193,19 @@ esac
 # ls Aliases
 #-------------------
 
-eval "`dircolors -b`"
-alias ls='ls -hF --color=auto'
+#eval "`dircolors -b`"
+export CLICOLOR=1
+#alias ls='ls -G'
+alias ll='ls -la'               # recursive ls
 alias la='ls -Al'               # show hidden files
 alias lx='ls -lXB'              # sort by extension
 alias lk='ls -lSr'              # sort by size
-alias lc='ls -lcr'		# sort by change time  
-alias lu='ls -lur'		# sort by access time   
+alias lc='ls -lcr'		        # sort by change time  
+alias lu='ls -lur'		        # sort by access time   
 alias lr='ls -lR'               # recursive ls
 alias lt='ls -ltr'              # sort by date
 alias lm='ls -al |more'         # pipe through 'more'
-alias tree='tree -Csu'		# nice alternative to 'ls'
+alias tree='tree -Csu'		    # nice alternative to 'ls'
 
 
 #-------------------
