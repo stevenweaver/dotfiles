@@ -12,6 +12,7 @@ cyan='\e[0;36m'
 CYAN='\e[1;36m'
 NC='\e[0m'              # No Color
 
+
 #-----------------------------------
 # Source global definitions (if any)
 #-----------------------------------
@@ -68,6 +69,7 @@ set -o noclobber
 #set -o ignoreeof	# Disable CTR+D
 set -o nounset
 #set -o xtrace        # Useful for debuging
+set -o vi
 
 # Enable options:
 shopt -s cdspell
@@ -157,6 +159,7 @@ alias starttest='~/Environments/Test/zinstance/bin/plonectl start'
 alias stoptest='~/Environments/Test/zinstance/bin/plonectl stop'
 
 alias gibbon='ssh gibbon -l sweaver'
+alias silverback='ssh silverback -l sweaver'
 alias lemur='ssh lemur -l sweaver'
 alias capuchin='ssh capuchin -l sweaver'
 alias stageapp='ssh stageapp -l sweaver'
@@ -295,6 +298,13 @@ function man ()
 	command man -a "$i"
     done
 }
+
+#-----------------
+# git acheivements 
+#-----------------
+export PATH="$PATH:~/git-achievements"
+alias git="git-achievements"
+
 
 #-----------------------------------
 # File & strings related functions:

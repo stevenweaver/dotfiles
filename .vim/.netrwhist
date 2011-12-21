@@ -1,7 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_cnt =7
 let g:netrw_dirhist_1='/home/steven/projectrobo/code/arduino/main_2'
 let g:netrw_dirhist_2='/usr/share/arduino/libraries/Servo'
 let g:netrw_dirhist_3='/home/steven/senior/pages'
 let g:netrw_dirhist_4='/Users/stevenweaver/Environments/production/zinstance/config'
 let g:netrw_dirhist_5='/Users/stevenweaver/lead_the_way/decryption'
+let g:netrw_dirhist_6='/Users/stevenweaver/hyphy3/tests/hbltests'
+let g:netrw_dirhist_7='/Users/stevenweaver/.ssh'
