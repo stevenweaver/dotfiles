@@ -303,7 +303,7 @@ function man ()
 # git acheivements 
 #-----------------
 export PATH="$PATH:~/git-achievements"
-alias git="git-achievements"
+#alias git="git-achievements"
 
 
 #-----------------------------------
