@@ -25,6 +25,7 @@ autocmd BufRead *.as set filetype=actionscript
 autocmd BufRead *.phtml set filetype=php
 autocmd BufRead *.pde set filetype=c
 autocmd BufRead *.gcov set filetype=cpp
+autocmd BufRead *.bf set filetype=cpp
 
 if bufwinnr(1)
     map + <C-W>+
