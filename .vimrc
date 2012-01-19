@@ -102,12 +102,11 @@ if has("gui_running")
   set t_Co=256
   set background=dark
   colorscheme peaksea
-  set nonu
+  set nu
 else
   colorscheme elflord 
   set background=dark
-
-  set nonu
+  set nu
 endif
 
 set encoding=utf8

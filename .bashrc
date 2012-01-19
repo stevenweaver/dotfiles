@@ -158,13 +158,19 @@ powerprompt # this is the default prompt - might be slow
 alias starttest='~/Environments/Test/zinstance/bin/plonectl start'
 alias stoptest='~/Environments/Test/zinstance/bin/plonectl stop'
 
-alias gibbon='ssh gibbon -l sweaver'
-alias silverback='ssh silverback -l sweaver'
-alias lemur='ssh lemur -l sweaver'
 alias capuchin='ssh capuchin -l sweaver'
+alias diskfarm='ssh diskfarm -l sweaver'
+alias gateway='ssh gateway -l sweaver'
+alias gibbon='ssh gibbon -l sweaver'
+alias lemur='ssh lemur -l sweaver'
+alias mandrill='ssh mandrill -l sweaver'
+alias mb='ssh monkeybusiness -l sweaver'
+alias silverback='ssh silverback -l sweaver'
+alias tamarin='ssh tamarin -l sweaver'
+alias yeti='ssh yeti -l sweaver'
+
 alias stageapp='ssh stageapp -l sweaver'
 alias testapp='ssh testapp -l sweaver'
-alias mb='ssh monkeybusiness -l sweaver'
 
 #-------------------
 # Personal Aliases
@@ -303,7 +309,7 @@ function man ()
 # git acheivements 
 #-----------------
 export PATH="$PATH:~/git-achievements"
-#alias git="git-achievements"
+alias git="git-achievements"
 
 
 #-----------------------------------
