@@ -181,6 +181,9 @@ alias play='vlc -I ncurses *.mp3'
 alias kf='killall firefox-bin'
 alias suod='sudo'
 
+#Preserve environment
+alias sudo='sudo -E'
+
 
 case $OSTYPE in
 linux*|freebsd*)
