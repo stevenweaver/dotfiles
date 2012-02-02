@@ -159,6 +159,7 @@ alias starttest='~/Environments/Test/zinstance/bin/plonectl start'
 alias stoptest='~/Environments/Test/zinstance/bin/plonectl stop'
 
 alias capuchin='ssh capuchin -l sweaver'
+alias database='ssh database -l sweaver'
 alias diskfarm='ssh diskfarm -l sweaver'
 alias gateway='ssh gateway -l sweaver'
 alias gibbon='ssh gibbon -l sweaver'
@@ -671,6 +672,9 @@ _my_command()
 complete -o default -F _my_command nohup exec eval \
 trace truss strace sotruss gdb
 complete -o default -F _my_command command type which man nice
+
+# for tmux: export 256color
+[ -n "$TMUX" ] && export TERM=xterm-256color
 
 # Local Variables:
 # mode:shell-script
