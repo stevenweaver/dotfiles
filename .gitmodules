@@ -1,7 +1,13 @@
-[submodule "nerdcommenter"]
-	path = nerdcommenter
+[submodule "vim/bundle/nerdcommenter"]
+	path = .vim/bundle/nerdcommenter
 	url = git://github.com/scrooloose/nerdcommenter.git
 
-[submodule "nerdtree"]
-	path = nerdtree
+[submodule "vim/bundle/nerdtree"]
+	path = .vim/bundle/nerdtree
 	url = git://github.com/scrooloose/nerdtree.git
+[submodule ".vim/bundle/vim-surround"]
+	path = .vim/bundle/vim-surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "vim-pathogen"]
+	path = vim-pathogen
+	url = https://github.com/tpope/vim-pathogen/

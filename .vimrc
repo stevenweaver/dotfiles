@@ -495,3 +495,6 @@ au BufRead,BufNewFile ~/buffer iab <buffer> xh1 ================================
 map <leader>pp :setlocal paste!<cr>
 
 map <leader>bb :cd ..<cr>
+
+"https://github.com/tpope/vim-pathogen.git
+call pathogen#infect()
