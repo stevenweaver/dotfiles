@@ -94,6 +94,7 @@ export HISTCONTROL=eraseedups
 # Add bin to path
 export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:/opt/local/bin/"
+export PATH="$PATH:/usr/local/bin/"
 
 
 # Try to keep environment pollution down, EPA loves us.
@@ -179,10 +180,11 @@ alias testapp='ssh testapp -l sweaver'
 # Personal Aliases
 #-------------------
 alias sw='ssh ssh.phx.nearlyfreespeech.net -l maximumsteve_stevenweaver'
-alias mpg123='mpg123-oss'
 alias play='vlc -I ncurses *.mp3'
 alias kf='killall firefox-bin'
 alias suod='sudo'
+alias home='ssh 98.176.128.167 -l steven'
+alias ssh='ssh -A'
 
 #Preserve environment
 alias sudo='sudo -E'
@@ -315,7 +317,7 @@ function man ()
 # git acheivements 
 #-----------------
 export PATH="$PATH:~/git-achievements"
-#alias git="git-achievements"
+alias git="git-achievements"
 
 
 #-----------------------------------
@@ -683,8 +685,6 @@ complete -o default -F _my_command command type which man nice
 # sh-shell:bash
 # End:
 
-SSH_ENV="$HOME/.ssh/environment"
-
 # start the ssh-agent
 function start_agent {
     echo "Initializing new SSH agent..."
@@ -730,3 +730,4 @@ else
 fi
 
 
+export VISUAL=/usr/bin/vim
