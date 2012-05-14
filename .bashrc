@@ -172,12 +172,14 @@ alias silverback='ssh silverback -l sweaver'
 alias tamarin='ssh tamarin -l sweaver'
 alias yeti='ssh yeti -l sweaver'
 
+
 alias stageapp='ssh stageapp -l sweaver'
 alias testapp='ssh testapp -l sweaver'
 
 #-------------------
 # Personal Aliases
 #-------------------
+alias grep='grep -n'
 alias sw='ssh ssh.phx.nearlyfreespeech.net -l maximumsteve_stevenweaver'
 alias play='vlc -I ncurses *.mp3'
 alias kf='killall firefox-bin'
