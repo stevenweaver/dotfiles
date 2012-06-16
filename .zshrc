@@ -13,8 +13,8 @@
 #  are allowed; b or bl selects black.  
 #
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=10000
+SAVEHIST=10000
 WORDCHARS="${WORDCHARS:s#/#}"
 WORDCHARS="${WORDCHARS:s#.#}"
 export EDITOR=$(which vim)
@@ -57,7 +57,7 @@ setopt autolist auto_menu
 bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/mwoodson/.zshrc'
+zstyle :compinstall filename '/home/sweaver/.zshrc'
 
 autoload -Uz compinit
 compinit
@@ -128,6 +128,7 @@ fi
 
 
 #aliases
+alias ls='ls --color=auto'
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
 alias grep='grep --color=auto'
@@ -205,8 +206,8 @@ zstyle ':vcs_info:*' enable git cvs svn
 zstyle ':vcs_info:*:prompt:*' check-for-changes true            # slower, but lets us show changes to working/index
 zstyle ':vcs_info:*:prompt:*' unstagedstr "${PR_BRIGHT_YELLOW}*${PR_RESET}"             # unstaged changes string: red *
 zstyle ':vcs_info:*:prompt:*' stagedstr "${PR_BRIGHT_YELLOW}+${PR_RESET}"            # staged changes string: yellow +
-zstyle ':vcs_info:*:prompt:*' formats  " ${PR_GREEN}%s${PR_RESET}:${PR_BRIGHT_RED}(%b${PR_RESET}%c%u${PR_BRIGHT_RED})${PR_RESET}"              "%a"
-zstyle ':vcs_info:*:prompt:*' actionformats  " ${PR_GREEN}%s${PR_RESET}:${PR_BRIGHT_RED}(%b|%a)${PR_RESET}"              "%a"
+zstyle ':vcs_info:*:prompt:*' formats  " ${PR_RED}%s${PR_RESET}:${magenta}(%b${PR_RESET}%c%u${magenta})${PR_RESET}"              "%a"
+zstyle ':vcs_info:*:prompt:*' actionformats  " ${PR_RED}%s${PR_RESET}:${magenta}(%b|%a)${PR_RESET}"              "%a"
 zstyle ':vcs_info:*:prompt:*' nvcsformats   ""                             "%~"
 zstyle ':vcs_info:*:prompt:*' branchformat  "%b:%r"              ""
 
@@ -278,7 +279,7 @@ fi
 if [[ $(whoami) = root ]]; then
     PROMPT_LINE="%B%F{red}%n@%M%f%b"
 else
-    PROMPT_LINE="%F{green}%n%f@%B%F{$HASH_MOD}%m%b%f"
+    PROMPT_LINE="%F{cyan}%n%f@%B%F{cyan}%m%b%f"
 fi
 
 precmd(){
@@ -312,14 +313,14 @@ precmd(){
 
     # now lets change the color of the path if its not writable
     if [[ -w $PWD ]]; then
-        PR_PWDCOLOR="%F{yellow}"
+        PR_PWDCOLOR="%F{white}"
     else
         PR_PWDCOLOR="${PR_BRIGHT_RED}"
     fi  
 
     # exit code, print it if its not 0
     if [[ $exit_status -ne 0 ]]; then
-        EXIT_STATUS=" %B%F{blue}◆%f%b %B%F{$HASH_MOD}Exit Code:%b%f %B%F{yellow}${exit_status}%b%f"
+        EXIT_STATUS=" %B%F{red}◆%f%b %B%F{white}Exit Code:%b%f %B%F{yellow}${exit_status}%b%f"
     else
         EXIT_STATUS=""
     fi  
@@ -328,12 +329,12 @@ precmd(){
 #PROMPT LINE
 #${PR_BRIGHT_YELLOW}%D{%R.%S %a %b %d %Y}${PR_RESET}\
 LINE1_PROMPT="\
-%B%F{black}▶%f%b%F{red}▶%B%F{red}▶%f%b \
-%B%F{$HASH_MOD}%D{%R.%S %a %b %d %Y}%b%f\
+%B%F{cyan}•%f%b \
+%B%F{white}%D{%R.%S %Y-%m-%d}%b%f\
 ${EXIT_STATUS}\
-%(1j. %B%F{green}◆%f%b %B%F{yellow}Jobs: %j%f%b.)\
+%(1j. %B%F{cyan}◆%f%b %B%F{yellow}Jobs: %j%f%b.)\
 ${PR_BATTERY}\
- %B%F{red}◀%f%b%F{red}◀%B%F{black}◀%f%b"
+%B%F{cyan} •%f%b"
 ###################
 
 local TERMWIDTH
@@ -344,15 +345,16 @@ LINE1_LENGTH=${#${LINE1//\[[^m]##m/}}
 SSH_P_LENGTH=${#${SSH_P//\[[^m]##m/}}
 FILL_SPACES=${(l:TERMWIDTH - (LINE1_LENGTH + SSH_P_LENGTH):: :)}
 
-print -- "$LINE1 $FILL_SPACES $SSH_P"
+#print -- "$LINE1 $FILL_SPACES $SSH_P"
+print -- "$LINE1 $FILL_SPACES"
 }
 
 function zle-line-init zle-keymap-select {
-    RPS1="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
+    RPS1="${${KEYMAP/vicmd/-N-}/(main|viins)/-I-}"
     RPS2=$RPS1
     zle reset-prompt
 }
 zle -N zle-line-init
 zle -N zle-keymap-select
 
-PROMPT='${PROMPT_LINE}%B%F{green}:%f%b${PR_PWDCOLOR}%~${PR_RESET}${vcs_info_msg_0_}%(!.%B%F{red}%#%f%b.%B%F{green}➤%f%b) '
+PROMPT='${PROMPT_LINE}%B%F{white}:%f%b${PR_PWDCOLOR}%~${PR_RESET}${vcs_info_msg_0_}%(!.%B%F{red}%#%f%b.%B%F{cyan} ✈%f%b '
