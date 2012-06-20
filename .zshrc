@@ -117,6 +117,7 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 
 CDPATH=.:~:~/git
 PATH=$PATH:~/bin
+PATH=/Users/sweaver/QtSDK/Desktop/Qt/4.8.1/gcc/bin:$PATH 
 
 #I want my umask 0002 if I'm not root
 if [[ $(whoami) = root ]]; then
@@ -128,19 +129,20 @@ fi
 
 
 #aliases
-alias ls='ls --color=auto'
-alias dir='dir --color=auto'
-alias vdir='vdir --color=auto'
-alias grep='grep --color=auto'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
+alias ls='ls -G'
+alias dir='dir -G'
+alias vdir='vdir -G'
+alias grep='grep -G'
+alias egrep='egrep -G'
+alias fgrep='fgrep -G'
+alias egrep='egrep -G'
 alias  vi=$(which vim)
 alias -- -='cd -'
 alias  ...='../..'
 alias  ....='../../..'
 alias  .....='../../../..'
 alias  ll='ls -lah'
+alias  lt='ls -lath'
 alias  sl='ls -lah'
 alias  l='ls -la'
 alias -g X='| xargs'
@@ -279,7 +281,7 @@ fi
 if [[ $(whoami) = root ]]; then
     PROMPT_LINE="%B%F{red}%n@%M%f%b"
 else
-    PROMPT_LINE="%F{cyan}%n%f@%B%F{cyan}%m%b%f"
+    PROMPT_LINE="%B%F{cyan}%n%f@%B%F{cyan}%m%b%f"
 fi
 
 precmd(){
@@ -329,12 +331,12 @@ precmd(){
 #PROMPT LINE
 #${PR_BRIGHT_YELLOW}%D{%R.%S %a %b %d %Y}${PR_RESET}\
 LINE1_PROMPT="\
-%B%F{cyan}•%f%b \
+%B%F{cyan}時%f%b \
 %B%F{white}%D{%R.%S}%b%f\
 ${EXIT_STATUS}\
 %(1j. %B%F{cyan}◆%f%b %B%F{yellow}Jobs: %j%f%b.)\
 ${PR_BATTERY}\
-%B%F{cyan} •%f%b"
+%B%F{cyan} 時%f%b"
 ###################
 
 local TERMWIDTH
