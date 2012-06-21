@@ -330,7 +330,7 @@ precmd(){
 
 #PROMPT LINE
 #${PR_BRIGHT_YELLOW}%D{%R.%S %a %b %d %Y}${PR_RESET}\
-LINE1_PROMPT="\
+RPROMPT="\
 %B%F{cyan}時%f%b \
 %B%F{white}%D{%R.%S}%b%f\
 ${EXIT_STATUS}\
@@ -351,12 +351,12 @@ FILL_SPACES=${(l:TERMWIDTH - (LINE1_LENGTH + SSH_P_LENGTH):: :)}
 print -- "$LINE1 $FILL_SPACES"
 }
 
-function zle-line-init zle-keymap-select {
-    RPS1="${${KEYMAP/vicmd/-N-}/(main|viins)/-I-}"
-    RPS2=$RPS1
-    zle reset-prompt
-}
-zle -N zle-line-init
-zle -N zle-keymap-select
+#function zle-line-init zle-keymap-select {
+    #RPS1='${RPROMPT_LINE} ${${KEYMAP/vicmd/-N-}/(main|viins)/-I-}'
+    #RPS2=$RPS1
+    #zle reset-prompt
+#}
+#zle -N zle-line-init
+#zle -N zle-keymap-select
 
 PROMPT='${PROMPT_LINE}%B%F{white}:%f%b${PR_PWDCOLOR}%~${PR_RESET}${vcs_info_msg_0_}%(!.%B%F{red}%#%f%b.%B%F{cyan} ✈%f%b '
