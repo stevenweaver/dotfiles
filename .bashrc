@@ -729,6 +729,4 @@ else
         start_agent
     fi
 fi
-
-
 export VISUAL=/usr/bin/vim
