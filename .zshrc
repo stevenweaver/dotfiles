@@ -21,6 +21,7 @@ export EDITOR=$(which vim)
 ##############################################################
 #key binding stuff to get the right keys to work
 # key bindings
+bindkey -v
 bindkey "\e[1~" beginning-of-line
 bindkey "\e[4~" end-of-line
 bindkey "\e[5~" beginning-of-history
@@ -51,10 +52,10 @@ bindkey "\e[H" beginning-of-line
 bindkey "\e[F" end-of-line
 # completion in the middle of a line
 bindkey '^i' expand-or-complete-prefix
+bindkey '^R' history-incremental-search-backward
 
 setopt appendhistory autocd nobeep extendedglob nomatch notify
 setopt autolist auto_menu
-bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/sweaver/.zshrc'
@@ -327,10 +328,9 @@ precmd(){
         EXIT_STATUS=""
     fi  
 
-
 #PROMPT LINE
 #${PR_BRIGHT_YELLOW}%D{%R.%S %a %b %d %Y}${PR_RESET}\
-RPROMPT="\
+LINE1="\
 %B%F{cyan}時%f%b \
 %B%F{white}%D{%R.%S}%b%f\
 ${EXIT_STATUS}\
@@ -342,7 +342,7 @@ ${PR_BATTERY}\
 local TERMWIDTH
 (( TERMWIDTH = ${COLUMNS} - 2 ))
 LINE1=${(e%)LINE1_PROMPT} SSH_P=${(e%)SSH_PROMPT}
-#$LINE1
+$LINE1
 LINE1_LENGTH=${#${LINE1//\[[^m]##m/}}
 SSH_P_LENGTH=${#${SSH_P//\[[^m]##m/}}
 FILL_SPACES=${(l:TERMWIDTH - (LINE1_LENGTH + SSH_P_LENGTH):: :)}
