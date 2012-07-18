@@ -34,6 +34,7 @@ filetype indent on
 
 " Set to auto read when a file is changed from the outside
 set autoread
+set paste
 
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
@@ -64,7 +65,7 @@ set wildmenu "Turn on WiLd menu
 
 set ruler "Always show current position
 
-set cmdheight=2 "The commandbar height
+set cmdheight=1 "The commandbar height
 
 set hid "Change buffer - without saving
 
@@ -277,7 +278,7 @@ map <leader>bd :Bclose<cr>
 " Close all the buffers
 map <leader>ba :1,300 bd!<cr>
 
-" Use the arrows to something usefull
+" Use the arrows to something useful
 map <right> :bn<cr>
 map <left> :bp<cr>
 
@@ -405,6 +406,7 @@ map <leader>p :cp<cr>
 " => Omni complete functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+set tags+=$HOME/.vim/qttags
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Filetypes 
@@ -496,5 +498,9 @@ map <leader>pp :setlocal paste!<cr>
 
 map <leader>bb :cd ..<cr>
 
+
 "https://github.com/tpope/vim-pathogen.git
 call pathogen#infect()
+
+
+
