@@ -331,7 +331,7 @@ precmd(){
 #PROMPT LINE
 #${PR_BRIGHT_YELLOW}%D{%R.%S %a %b %d %Y}${PR_RESET}\
 LINE1_PROMPT="\
-%B%F{cyan}時%f%b \
+╭─ %B%F{cyan}時%f%b \
 %B%F{white}%D{%R.%S}%b%f\
 ${EXIT_STATUS}\
 %(1j. %B%F{cyan}◆%f%b %B%F{yellow}Jobs: %j%f%b.)\
@@ -351,4 +351,4 @@ function zle-line-init zle-keymap-select {
 zle -N zle-line-init
 zle -N zle-keymap-select
 
-PROMPT='${PROMPT_LINE}%B%F{white}:%f%b${PR_PWDCOLOR}%~${PR_RESET}${vcs_info_msg_0_}%(!.%B%F{red}%#%f%b.%B%F{cyan} ✈%f%b '
+PROMPT='╰─ ${PROMPT_LINE}%B%F{white}:%f%b${PR_PWDCOLOR}%~${PR_RESET}${vcs_info_msg_0_}%(!.%B%F{red}%#%f%b.%F{cyan} ✎%f%b '
