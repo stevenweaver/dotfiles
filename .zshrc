@@ -131,6 +131,7 @@ fi
 
 
 #aliases
+alias se='sudoedit'
 alias ls='ls -G'
 alias dir='dir -G'
 alias vdir='vdir -G'
