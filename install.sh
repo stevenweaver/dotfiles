@@ -5,3 +5,4 @@ ln -sf ~/.dot_files/.vimrc ~/.vimrc
 ln -sf ~/.dot_files/.vim ~/.vim
 ln -sf ~/.dot_files/.tmux.conf ~/.tmux.conf
 ln -sf ~/.dot_files/.zshrc ~/.zshrc
+ln -sf ~/.dot_files/.gitconfig ~/.gitconfig
