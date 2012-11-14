@@ -128,7 +128,11 @@ else
     umask 0002
 fi
 
-
+if [[ $(uname) = Darwin ]]; then
+    alias ctags='/usr/local/bin/ctags'
+else
+    alias ctags='ctags'
+fi
 
 #aliases
 alias se='sudoedit'
