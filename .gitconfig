@@ -8,23 +8,9 @@
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
   st = status -uno
   stsu = status
+  d = difftool
 
-#[diff]
-#    external = /Users/sweaver/.bin/git_diff_wrapper
-#
-#[pager]
-#    diff = 
-#
-#[core]
-#	excludesfile = /Users/stevenweaver/.gitignore_global
-#
-#[difftool "sourcetree"]
-#	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-#	path = 
-#
-#[mergetool "sourcetree"]
-#	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-#	trustExitCode = true
-#
-#[achievement]
-#	upload = false
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
