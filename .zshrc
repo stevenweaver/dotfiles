@@ -273,7 +273,7 @@ case $TERM in
 
 if [[ -n $SSH_CONNECTION ]]; then
     SSH_IP=$(echo $SSH_CLIENT | awk '{print $1}')
-    HOST_OUTPUT=$(host $SSH_IP)
+    #HOST_OUTPUT=$(host $SSH_IP)
     if [[ $? -eq 0 ]]; then
         SSH_HOST=$(echo $HOST_OUTPUT | awk '{print $NF}' | sed 's/.$//')
     else
