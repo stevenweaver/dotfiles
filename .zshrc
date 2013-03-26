@@ -134,15 +134,18 @@ else
     alias ctags='ctags'
 fi
 
+if [[ $(uname) = Darwin ]]; then
+    alias ls='ls -G'
+    alias dir='dir -G'
+    alias vdir='vdir -G'
+    alias grep='grep -G'
+    alias egrep='egrep -G'
+    alias fgrep='fgrep -G'
+    alias egrep='egrep -G'
+fi
+
 #aliases
 alias se='sudoedit'
-alias ls='ls -G'
-alias dir='dir -G'
-alias vdir='vdir -G'
-alias grep='grep -G'
-alias egrep='egrep -G'
-alias fgrep='fgrep -G'
-alias egrep='egrep -G'
 alias  vi=$(which vim)
 alias -- -='cd -'
 alias  ...='../..'
