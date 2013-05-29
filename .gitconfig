@@ -14,3 +14,7 @@
 	tool = vimdiff
 [difftool]
 	prompt = false
+
+[github]
+    name = Steven Weaver
+    email = weaverst@gmail.com

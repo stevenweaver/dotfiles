@@ -155,6 +155,7 @@ alias  ll='ls -lah'
 alias  lt='ls -lath'
 alias  sl='ls -lah'
 alias  l='ls -la'
+alias  lg='ls | grep -v /'
 alias -g X='| xargs'
 alias -g G='| egrep'
 
