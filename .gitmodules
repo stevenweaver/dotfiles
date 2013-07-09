@@ -20,3 +20,6 @@
 [submodule ".vim/bundle/md-vim"]
 	path = .vim/bundle/md-vim
 	url = git://github.com/hughbien/md-vim.git
+[submodule ".vim/bundle/YouCompleteMe"]
+	path = .vim/bundle/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe.git
