@@ -416,6 +416,7 @@ autocmd BufRead *.phtml set filetype=php
 autocmd BufRead *.pde set filetype=c
 autocmd BufRead *.gcov set filetype=cpp
 autocmd BufRead *.bf set filetype=cpp
+autocmd BufRead *.hbl set filetype=cpp
 au BufNewFile,BufRead *.md set ft=md
 au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
 
