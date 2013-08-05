@@ -506,5 +506,5 @@ call pathogen#infect()
 
 
 let g:slime_target = "tmux"
-map <C-K> :pyf /Users/sweaver/Programming/llvm/tools/clang/tools/clang-format/clang-format.py
-imap <C-K> <ESC>:pyf /Users/sweaver/Programming/llvm/tools/clang/tools/clang-format/clang-format.py<CR>i
+"map <C-K> :pyf /Users/sweaver/Programming/llvm/tools/clang/tools/clang-format/clang-format.py
+"imap <C-K> <ESC>:pyf /Users/sweaver/Programming/llvm/tools/clang/tools/clang-format/clang-format.py<CR>i
