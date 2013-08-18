@@ -19,51 +19,22 @@ alias history='history 1'
 WORDCHARS="${WORDCHARS:s#/#}"
 WORDCHARS="${WORDCHARS:s#.#}"
 export EDITOR=$(which vim)
-##############################################################
-#key binding stuff to get the right keys to work
-# key bindings
-bindkey -v
-bindkey "\e[1~" beginning-of-line
-bindkey "\e[4~" end-of-line
-bindkey "\e[5~" beginning-of-history
-bindkey "\e[6~" end-of-history
-bindkey "\e[3~" delete-char
-bindkey "\e[2~" overwrite-mode
-bindkey "\e[5C" forward-word
-bindkey "\eOc" emacs-forward-word
-bindkey "\e[5D" backward-word
-bindkey "\eOd" emacs-backward-word
-bindkey "\ee[C" forward-word
-bindkey "\ee[D" backward-word
-#Ctrl-left/right
-bindkey '\e[1;5C' forward-word # ctrl right
-bindkey '\e[1;5D' backward-word # ctrl left o
-#alt-left/right
-bindkey "\e[1;3C" forward-word 
-bindkey "\e[1;3D" backward-word
-#bindkey "^H" backward-delete-word
-# for rxvt
-bindkey "\e[8~" end-of-line
-bindkey "\e[7~" beginning-of-line
-# for non RH/Debian xterm, cant hurt for RH/DEbian xterm
-bindkey "\eOH" beginning-of-line
-bindkey "\eOF" end-of-line
-# for freebsd console
-bindkey "\e[H" beginning-of-line
-bindkey "\e[F" end-of-line
+
 # completion in the middle of a line
 bindkey '^i' expand-or-complete-prefix
 bindkey '^R' history-incremental-search-backward
 
-setopt appendhistory autocd nobeep extendedglob nomatch notify
+setopt appendhistory autocd nobeep extendedglob nomatch notify 
 setopt autolist auto_menu
+unsetopt listambiguous
+
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/sweaver/.zshrc'
-
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+
 ## completion system
 _force_rehash() {
       (( CURRENT == 1 )) && rehash
@@ -79,7 +50,6 @@ zstyle ':completion:*:correct:*'       original true                       #
 zstyle ':completion:*:default'         list-colors ${(s.:.)LS_COLORS}      # activate color-completion(!)
 zstyle ':completion:*:descriptions'    format $'%{\e[0;31m%}completing %B%d%b%{\e[0m%}'  # format on completion
 zstyle ':completion:*:*:cd:*:directory-stack' menu yes select              # complete 'cd -<tab>' with menu
-#zstyle ':completion:*:expand:*'        tag-order all-expansions            # insert all expansions for expand completer
 zstyle ':completion:*:history-words'   list false                          #
 zstyle ':completion:*:history-words'   menu yes                            # activate menu
 zstyle ':completion:*:history-words'   remove-all-dups yes                 # ignore duplicate entries
@@ -102,8 +72,6 @@ zstyle ':completion::(^approximate*):*:functions' ignored-patterns '_*'    # Ign
 zstyle ':completion:*:manuals'    separate-sections true
 zstyle ':completion:*:manuals.*'  insert-sections   true
 zstyle ':completion:*:man:*'      menu yes select
-
-
 
 # Completion caching
 zstyle ':completion::complete:*' use-cache on
@@ -232,63 +200,6 @@ RED_RARROW="%B%F{red}▶%f%b"
 RED_LARROW="%B%F{red}◀%f%b"
 RED_STAR="%B%F{red}✱%b%f"
 
-case $TERM in
-    *xterm*|rxvt|(dt|k|E)term)
-        preexec () {
-            if [[ $(basename ${1[(w)1]}) == "ssh" ]]; then
-                SHN=${1[(w)-1]}
-                SHN_ARRAY=( ${(s,.,)SHN})
-                print -Pn "\e]2;$SHN:%~\a"
-            else
-                print -Pn "\e]2;%n@%m:%~\a"
-            fi
-        }
-    ;;
-    screen)
-        preexec () { 
-            if [[ $(basename ${1[(w)1]}) == "ssh" ]]; then
-                SHN=${1[(w)-1]}
-                SHN=${SHN#*@}
-                SHN_ARRAY=( ${(s,.,)SHN})
-                case ${#SHN_ARRAY} in
-                    2)
-                        print -Pn "\033k$SHN\033\\"
-                    ;;
-                    4)
-                        print -Pn "\033k$SHN_ARRAY[1].$SHN_ARRAY[2]\033\\"
-                    ;;
-                    5)
-                        #print -Pn "\033k$SHN_ARRAY[1].$SHN_ARRAY[2].$SHN_ARRAY[3]\033\\"
-                        print -Pn "\033k$SHN_ARRAY[1].$SHN_ARRAY[3]\033\\"
-                    ;;
-                    *)
-                        print -Pn "\033k$SHN_ARRAY[1]\033\\"
-                    ;;
-                esac
-            fi
-        }
-        #set up precmd to draw the screen title
-        function set_screen_title { 
-            print -Pn "\033k%m\033\\"
-        }
-        precmd_functions=( set_screen_title )
-    ;;
-}
-
-if [[ -n $SSH_CONNECTION ]]; then
-    SSH_IP=$(echo $SSH_CLIENT | awk '{print $1}')
-    #HOST_OUTPUT=$(host $SSH_IP)
-    if [[ $? -eq 0 ]]; then
-        SSH_HOST=$(echo $HOST_OUTPUT | awk '{print $NF}' | sed 's/.$//')
-    else
-        SSH_HOST=$SSH_IP
-    fi    
-    SSH_PROMPT="${RED_STAR}%F{yellow}SSH from: %f%B%F{green}$SSH_HOST%f%b${RED_STAR}"
-    #SSH_PROMPT="${YELLOW_DIAMOND}${PR_BRIGHT_RED}SSH${PR_RESET}${YELLOW_DIAMOND}"
-    #SSH_VAR="${YELLOW_DIAMOND}${PR_BRIGHT_RED}SSH${PR_RESET}${YELLOW_DIAMOND}"
-
-fi
-
 if [[ $(whoami) = root ]]; then
     PROMPT_LINE="%B%F{red}%n@%M%f%b"
 else
@@ -300,29 +211,6 @@ precmd(){
     local exit_status=$?
 
     vcs_info 'prompt'
-
-    # Battery Stuff
-    if which ibam &> /dev/null; then
-        IBAMSTAT="$(ibam)"
-        if [[ ${IBAMSTAT[(f)(1)][(w)1]} =  "Battery" ]]; then
-            BATTSTATE="$(ibam --percentbattery)"
-            BATTPRCNT="${BATTSTATE[(f)1][(w)-2]}"
-            BATTTIME="${BATTSTATE[(f)2][(w)-1]}"
-            PR_BATTERY="Bat: ${BATTPRCNT}%% (${BATTTIME})"
-            if [[ "${BATTPRCNT}" -lt 15 ]]; then
-                PR_BATTERY=" ${BLUE_DIAMOND} ${PR_BRIGHT_RED}${PR_BATTERY}"
-            elif [[ "${BATTPRCNT}" -lt 50 ]]; then
-                PR_BATTERY=" ${BLUE_DIAMOND} ${PR_BRIGHT_YELLOW}${PR_BATTERY}"
-            elif [[ "${BATTPRCNT}" -lt 100 ]]; then
-                PR_BATTERY=" ${BLUE_DIAMOND} ${PR_BRIGHT_CYAN}${PR_BATTERY}${PR_RESET}"
-            else
-                PR_BATTERY=""
-            fi
-        else
-            PR_BATTERY=""
-        fi
-    fi
-    ###End of Battery Stuff######
 
     # now lets change the color of the path if its not writable
     if [[ -w $PWD ]]; then
@@ -352,13 +240,7 @@ LINE1=${(e%)LINE1_PROMPT}
 print -- "$LINE1"
 }
 
-function zle-line-init zle-keymap-select {
-    RPS1='${${KEYMAP/vicmd/令}/(main|viins)/入}'
-    RPS2=$RPS1
-    zle reset-prompt
-}
-
-#zle -N zle-line-init
-#zle -N zle-keymap-select
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
 
 PROMPT='${PROMPT_LINE}%B%F{white}:%f%b${PR_PWDCOLOR}%~${PR_RESET}${vcs_info_msg_0_}%(!.%B%F{red}%#%f%b.%F{cyan}%f%b '
