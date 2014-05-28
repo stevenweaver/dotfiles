@@ -27,7 +27,7 @@ set foldmethod=syntax
 
 " Enable filetype plugin
 filetype plugin on
-filetype indent on
+filetype indent plugin on
 
 " Set to auto read when a file is changed from the outside
 set autoread
@@ -210,6 +210,7 @@ autocmd BufRead *.pde set filetype=c
 autocmd BufRead *.gcov set filetype=cpp
 autocmd BufRead *.bf set filetype=cpp
 autocmd BufRead *.hbl set filetype=cpp
+autocmd BufRead *.py set filetype=python
 au BufNewFile,BufRead *.md set ft=md
 au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
 
