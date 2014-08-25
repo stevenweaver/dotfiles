@@ -1,6 +1,6 @@
 [user]
 	name = Steven Weaver
-	email = weaverst@gmail.com
+	email = sweaver@ucsd.edu
 
 [alias]
   co = checkout
@@ -12,9 +12,10 @@
 
 [diff]
 	tool = vimdiff
+
 [difftool]
 	prompt = false
 
 [github]
     name = Steven Weaver
-    email = weaverst@gmail.com
+    email = sweaver@uscd.edu
