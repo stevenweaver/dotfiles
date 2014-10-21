@@ -153,12 +153,12 @@ map <space> /
 map <c-space> ?
 map <silent> <leader><cr> :noh<cr>
 
-if bufwinnr(1)
-    map + <C-W>+
-    map _ <C-W>-
-    map = <C-W>>
-    map - <C-W><
-endif
+"if bufwinnr(1)
+"    map + <C-W>+
+"    map _ <C-W>-
+"    map = <C-W>>
+"    map - <C-W><
+"endif
 
 " Smart way to move btw. windows
 map <C-j> <C-W>j
