@@ -27,7 +27,7 @@ set foldmethod=syntax
 
 " Enable filetype plugin
 filetype plugin on
-filetype indent on
+filetype indent plugin on
 
 " Set to auto read when a file is changed from the outside
 set autoread
@@ -111,8 +111,8 @@ set noswapfile
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set expandtab
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=2
+set tabstop=2
 set smarttab
 
 set lbr
@@ -153,12 +153,12 @@ map <space> /
 map <c-space> ?
 map <silent> <leader><cr> :noh<cr>
 
-if bufwinnr(1)
-    map + <C-W>+
-    map _ <C-W>-
-    map = <C-W>>
-    map - <C-W><
-endif
+"if bufwinnr(1)
+"    map + <C-W>+
+"    map _ <C-W>-
+"    map = <C-W>>
+"    map - <C-W><
+"endif
 
 " Smart way to move btw. windows
 map <C-j> <C-W>j
@@ -210,6 +210,7 @@ autocmd BufRead *.pde set filetype=c
 autocmd BufRead *.gcov set filetype=cpp
 autocmd BufRead *.bf set filetype=cpp
 autocmd BufRead *.hbl set filetype=cpp
+autocmd BufRead *.py set filetype=python
 au BufNewFile,BufRead *.md set ft=md
 au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
 
