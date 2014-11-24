@@ -261,6 +261,7 @@ map <leader>pp :setlocal paste!<cr>
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'Shougo/vimproc.vim'
+Plugin 'Lokaltog/vim-easymotion'
 
 "https://github.com/tpope/vim-pathogen.git
 call pathogen#infect()
