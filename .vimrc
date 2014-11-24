@@ -257,6 +257,11 @@ let Grep_Skip_Dirs = 'RCS CVS SCCS .git generated'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <leader>pp :setlocal paste!<cr>
 
+" Vundles
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'Shougo/vimproc.vim'
+
 "https://github.com/tpope/vim-pathogen.git
 call pathogen#infect()
 
