@@ -15,6 +15,8 @@ WORDCHARS="${WORDCHARS:s#.#}"
 bindkey '^i' expand-or-complete-prefix
 bindkey '^R' history-incremental-search-backward
 
+zstyle ':completion:*' insert-tab false
+
 # end sweaver edits
 
 # Set name of the theme to load.
@@ -27,7 +29,7 @@ ZSH_THEME="tourmaline"
 # CASE_SENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
