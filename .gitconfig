@@ -19,3 +19,7 @@
 [github]
     name = Steven Weaver
     email = sweaver@uscd.edu
+[core]
+	editor = /usr/bin/vim
+[http]
+	sslVerify = false

@@ -17,7 +17,6 @@
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -31,7 +30,7 @@ filetype indent plugin on
 
 " Set to auto read when a file is changed from the outside
 set autoread
-set paste
+"set paste
 
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
@@ -49,7 +48,6 @@ inoremap <F5> <C-R>=strftime("%Y%m%d")<CR>
 
 " When vimrc is edited, reload it
 autocmd! bufwritepost vimrc source ~/.vimrc
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -208,8 +206,8 @@ autocmd BufRead *.as set filetype=actionscript
 autocmd BufRead *.phtml set filetype=php
 autocmd BufRead *.pde set filetype=c
 autocmd BufRead *.gcov set filetype=cpp
-autocmd BufRead *.bf set filetype=cpp
-autocmd BufRead *.hbl set filetype=cpp
+autocmd BufRead *.bf set filetype=hyphy
+autocmd BufRead *.hbl set filetype=hyphy
 autocmd BufRead *.py set filetype=python
 au BufNewFile,BufRead *.md set ft=md
 au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
