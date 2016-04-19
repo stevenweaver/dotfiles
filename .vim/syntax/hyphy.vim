@@ -26,7 +26,7 @@ syn keyword hyphyBuiltin Join LnGamma Log LUDecompose LUSolve Max Min PSTreeStri
 syn keyword hyphyBuiltin Random RerootTree Rows Simplex Sin Sqrt Tan Time
 syn keyword hyphyBuiltin TipCount TipName Transpose Type ZCDF
 
-syn keyword HBLCommand AlignSequences Assert BGM 
+syn keyword HBLCommand AlignSequences Assert assert BGM 
 syn keyword HBLCommand Category ChoiceList ClearConstraints
 syn keyword HBLCommand ConstructCategoryMatrix CovarianceMatrix
 syn keyword HBLCommand DataSet DataSetFilter DeleteObject Differentiate DoSQL
@@ -35,7 +35,7 @@ syn keyword HBLCommand fprintf fscanf function GetDataInfo GetInformation GetNeu
 syn keyword HBLCommand GetString GetURL HarvestFrequencies Import Integrate LFCompute
 syn keyword HBLCommand LikelihoodFunction LikelihoodFunction3 LoadFunctionLibrary Model
 syn keyword HBLCommand MolecularClock MPIReceive MPISend OpenDataPanel OpenWindow
-syn keyword HBLCommand Optmize ReplicateConstraint RequireVersion SCFG 
+syn keyword HBLCommand Optimize ReplicateConstraint RequireVersion SCFG 
 syn keyword HBLCommand SelectTemplateModel SetDialogPrompt SetParameter SimulateDataSet
 syn keyword HBLCommand SpawnLikelihoodFunction StateCounter UseModel
 
