@@ -244,6 +244,12 @@ function! JavaScriptFold()
     setl foldtext=FoldText()
 endfunction
 
+""""""""""""""""""""""""""""""
+" => HyPhy section
+"""""""""""""""""""""""""""""""
+let g:NERDCustomDelimiters = {
+\ 'hyphy': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' }
+\ }
 
 """"""""""""""""""""""""""""""
 " => Vim grep

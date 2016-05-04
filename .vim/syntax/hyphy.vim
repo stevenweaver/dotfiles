@@ -1,7 +1,7 @@
 " Vim syntax file
 " Language:    HyPhy Batch Language
 " Maintainer:  Steven Weaver <steven@stevenweaver.org>
-" Last Change: 2016 Apr 13
+" Last Change: 2016 May 4
 
 
 " For version 5.x: Clear all syntax items
@@ -46,4 +46,3 @@ syn match hyphyFunction
 hi def link hyphyBuiltin Statement
 hi def link HBLCommand Statement
 hi def link hyphyFunction Function
-
