@@ -5,7 +5,13 @@ export ZSH=$HOME/.oh-my-zsh
 
 # aliases
 alias history='history 1'
-alias make="make -j `nproc`"
+alias sw='ssh ssh.phx.nearlyfreespeech.net -l maximumsteve_stevenweaver'
+
+if [ `uname` = "Darwin" ]; then
+  alias make="make -j `sysctl -n hw.ncpu`"
+else
+  alias make="make -j `nproc`"
+fi
 
 # history
 HISTFILE=~/.histfile

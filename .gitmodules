@@ -18,7 +18,7 @@
 	url = git://github.com/hughbien/md-vim.git
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
-	url = git://github.com/stevenweaver/oh-my-zsh.git
+	url = git://github.com/robbyrussell/oh-my-zsh.git
 [submodule ".vim/bundle/vim-vinegar"]
 	path = .vim/bundle/vim-vinegar
 	url = git://github.com/tpope/vim-vinegar.git
