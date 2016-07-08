@@ -1,6 +1,6 @@
 [user]
 	name = Steven Weaver
-	email = sweaver@ucsd.edu
+	email = sweaver@temple.edu
 
 [alias]
   co = checkout
@@ -18,8 +18,9 @@
 
 [github]
     name = Steven Weaver
-    email = sweaver@uscd.edu
+    email = sweaver@temple.edu
 [core]
 	editor = /usr/bin/vim
+	autocrlf = false
 [http]
 	sslVerify = false
