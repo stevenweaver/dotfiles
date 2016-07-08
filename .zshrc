@@ -3,11 +3,14 @@ export ZSH=$HOME/.oh-my-zsh
 
 # sweaver edits
 
+# aliases
+alias history='history 1'
+alias make="make -j `nproc`"
+
 # history
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
-alias history='history 1'
 WORDCHARS="${WORDCHARS:s#/#}"
 WORDCHARS="${WORDCHARS:s#.#}"
 
