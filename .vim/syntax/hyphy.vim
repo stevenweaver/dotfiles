@@ -24,7 +24,7 @@ syn keyword hyphyBuiltin CChi2 CGammaDist Columns Cos Eigensystem Erf Eval Exp
 syn keyword hyphyBuiltin Format Gamma GammaDist IBeta IGamma InvChi2 Inverse
 syn keyword hyphyBuiltin Join LnGamma Log LUDecompose LUSolve Max Min PSTreeString
 syn keyword hyphyBuiltin Random RerootTree Rows Simplex Sin Sqrt Tan Time
-syn keyword hyphyBuiltin TipCount TipName Transpose Type ZCDF
+syn keyword hyphyBuiltin TipCount TipName Transpose Tree Type ZCDF
 
 syn keyword HBLCommand AlignSequences Assert assert BGM 
 syn keyword HBLCommand Category ChoiceList ClearConstraints
