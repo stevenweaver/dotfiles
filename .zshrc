@@ -25,6 +25,7 @@ bindkey '^i' expand-or-complete-prefix
 bindkey '^R' history-incremental-search-backward
 bindkey  '^K' up-line-or-history
 bindkey  '^J' down-line-or-history
+bindkey  '^H' beginning-of-line
 
 zstyle ':completion:*' insert-tab false
 
