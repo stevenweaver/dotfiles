@@ -13,6 +13,7 @@
 "    -> Omni complete functions
 "    -> Python section
 "    -> JavaScript section
+"    -> Vundles
 "
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
