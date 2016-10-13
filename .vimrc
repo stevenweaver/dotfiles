@@ -267,6 +267,7 @@ map <leader>pp :setlocal paste!<cr>
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'Shougo/vimproc.vim'
+Plugin 'Shougo/Neocomplcache.vim'
 Plugin 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-sensible'
 Bundle 'tpope/vim-surround'
@@ -281,5 +282,10 @@ Bundle 'rking/ag.vim'
 Bundle 'kana/vim-textobj-user'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'slim-template/vim-slim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'jpalardy/vim-slime'
+call vundle#end()
 
+let g:neocomplcache_enable_at_startup = 1
 let g:slime_target = "tmux"
+
