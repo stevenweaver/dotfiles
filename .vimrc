@@ -285,6 +285,8 @@ Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'slim-template/vim-slim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'jpalardy/vim-slime'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 call vundle#end()
 
 let g:neocomplcache_enable_at_startup = 1
