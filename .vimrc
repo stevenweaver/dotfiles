@@ -288,7 +288,15 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'jpalardy/vim-slime'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'rhysd/vim-clang-format'
 call vundle#end()
+
+let g:clang_format#style_options = {
+            \ "AccessModifierOffset" : -4,
+            \ "AllowShortIfStatementsOnASingleLine" : "true",
+            \ "AlwaysBreakTemplateDeclarations" : "true",
+            \ "Standard" : "C++11",
+            \ "BreakBeforeBraces" : "Stroustrup"}
 
 let g:neocomplcache_enable_at_startup = 1
 let g:slime_target = "tmux"

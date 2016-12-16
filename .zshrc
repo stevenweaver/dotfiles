@@ -83,6 +83,7 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=/usr/local/texlive/2016/bin/x86_64-darwin/:$PATH
+export PATH=$HOME/anaconda2/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
