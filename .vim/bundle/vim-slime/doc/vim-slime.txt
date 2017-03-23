@@ -11,19 +11,20 @@ Grab some text and "send" it to a GNU Screen / tmux / whimrepl session.
 
 	VIM ---(text)---> screen / tmux / whimrepl~
 
-Presumably, your screen contains something interesting like, say, a Clojure
-REPL. But if it can receive typed text, it can receive it from vim-slime.
+Presumably, your session contains a REPL, maybe Clojure, R or python. If you
+can type text into it, vim-slime can send text to it.
 
 The reason you're doing this? Because you want the benefits of a REPL and the
-benefits of using Vim (familiar environment, syntax highlighting, persistence,
+benefits of using Vim (familiar environment, syntax highlighting, persistence
 ...).
 
 1. Usage				|slime-usage|
 2. Screen Configuration 		|slime-screen|
 3. Tmux Configuration			|slime-tmux|
-4. whimrepl Configuration		|slime-whimrepl|
-5. Slime Configuration			|slime-configuration|
-6. Slime Requirements			|slime-requirements|
+4. Neovim Configuration			|slime-neovim|
+5. whimrepl Configuration		|slime-whimrepl|
+6. Slime Configuration			|slime-configuration|
+7. Slime Requirements			|slime-requirements|
 
 ==============================================================================
 1. Slime Usage 					*slime-usage*
@@ -102,11 +103,26 @@ To get a list of all the available pane execute the following:
 >
 	tmux list-panes -a
 <
+==============================================================================
+4. Neovim Configuration 			*slime-neovim*
+
+Neovim is not the default, to use it you will have to add this line to your
+|.vimrc|:
+>
+	let g:slime_target = "neovim"
+<
+When you invoke vim-slime for the first time (see below), you will be prompted
+for more configuration.
+
+jobid~
+
+In the neovim terminal buffer type ":echo b:terminal_job_id" to get the
+job_id for that terminal
 
 ==============================================================================
-4. whimrepl Configuration 			*slime-whimrepl*
+5. whimrepl Configuration 			*slime-whimrepl*
 
-whimrepl is also not the default, to use it you will have to add this line to
+whimrepl is not the default, to use it you will have to add this line to
 your |.vimrc|:
 >
 	let g:slime_target = "whimrepl"
@@ -121,7 +137,7 @@ displays that name in its banner every time you start up an instance of
 whimrepl.
 
 ==============================================================================
-5. Slime Configuration 				*slime-configuration*
+6. Slime Configuration 				*slime-configuration*
 
 Global Variables~
 						*g:slime_target*
@@ -137,6 +153,18 @@ g:slime_paste_file	Used to transfer data from vim to GNU Screen or tmux.
 			used. Setting this explicitly can work around some
 			occasional portability issues.
 			whimrepl does not require or support this setting.
+						*g:slime_preserve_curpos*
+g:slime_preserve_curpos	Set to non zero value to preserve cursor position when
+			sending a line or paragraph. Default is 1.
+
+
+						*g:slime_default_config*
+g:slime_default_config	Set to dictionary of pre-filled prompt answer. See
+			the README for details: https://github.com/jpalardy/vim-slime
+
+						*g:slime_dont_ask_default*
+g:slime_dont_ask_default	Works with g:slime_default_config. See
+			the README for details: https://github.com/jpalardy/vim-slime
 
 Mappings~
 
@@ -173,7 +201,7 @@ To use vim like mappings instead of emacs keybindings use the following:
 <
 
 ==============================================================================
-5. Slime Requirements 				*slime-requirements*
+7. Slime Requirements 				*slime-requirements*
 
 Slime requires either screen or tmux to be available and executable. Awk is
 used for completion of screen sessions.  whimrepl does not require any
