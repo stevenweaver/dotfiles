@@ -86,6 +86,7 @@ export PATH=/usr/local/texlive/2016/bin/x86_64-darwin/:$PATH
 export PATH=/usr/local/Cellar/tmux/2.3_3/bin:$PATH 
 export PATH=/usr/local/opt/python/bin/:$PATH 
 export GOPATH=$HOME/go
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
