@@ -269,7 +269,6 @@ map <leader>pp :setlocal paste!<cr>
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'Shougo/vimproc.vim'
-Plugin 'Shougo/Neocomplcache.vim'
 Plugin 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-sensible'
 Bundle 'tpope/vim-surround'
@@ -310,6 +309,6 @@ let g:clang_format#style_options = {
             \ "Standard" : "C++11",
             \ "BreakBeforeBraces" : "Stroustrup"}
 
-let g:neocomplcache_enable_at_startup = 1
 let g:slime_target = "tmux"
+let g:ycm_python_binary_path = 'python3'
 
