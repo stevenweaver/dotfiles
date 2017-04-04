@@ -730,6 +730,7 @@ else
     fi
 fi
 export VISUAL=/usr/bin/vim
+echo 'hello'
 
 # added by Anaconda2 4.2.0 installer
 export PATH="/home/sweaver/anaconda2/bin:$PATH"
