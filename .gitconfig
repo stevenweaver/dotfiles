@@ -1,6 +1,7 @@
 [user]
 	name = Steven Weaver
 	email = sweaver@temple.edu
+	signingkey = D68D0F1A
 
 [alias]
   co = checkout
