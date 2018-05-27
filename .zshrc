@@ -6,6 +6,7 @@ export ZSH=$HOME/.oh-my-zsh
 # aliases
 alias history='history 1'
 alias sw='ssh ssh.phx.nearlyfreespeech.net -l maximumsteve_stevenweaver'
+alias ssh='ssh -A'
 
 if [ `uname` = "Darwin" ]; then
   alias make="make -j `sysctl -n hw.ncpu`"
