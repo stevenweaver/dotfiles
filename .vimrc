@@ -311,3 +311,4 @@ let g:clang_format#style_options = {
 
 let g:slime_target = "tmux"
 let g:ycm_python_binary_path = 'python3'
+set runtimepath+=~/.vim/bundle/vundle/
