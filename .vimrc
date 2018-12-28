@@ -291,6 +291,8 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'honza/vim-snippets'
 Plugin 'justinj/vim-react-snippets'
 Plugin 'rhysd/vim-clang-format'
+Plugin 'sbdchd/neoformat'
+Plugin 'isRuslan/vim-es6'
 call vundle#end()
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
@@ -310,3 +312,4 @@ let g:clang_format#style_options = {
 
 let g:slime_target = "tmux"
 let g:ycm_python_binary_path = 'python3'
+set runtimepath+=~/.vim/bundle/vundle/

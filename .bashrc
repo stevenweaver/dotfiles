@@ -317,9 +317,6 @@ function man ()
 #-----------------
 # git acheivements 
 #-----------------
-export PATH="$PATH:~/git-achievements"
-alias git="git-achievements"
-
 
 #-----------------------------------
 # File & strings related functions:
