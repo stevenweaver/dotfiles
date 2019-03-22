@@ -1,3 +1,4 @@
+rm ~/.config; ln -sf ~/.dotfiles/.config ~/.config
 rm ~/.bashrc; ln -sf ~/.dotfiles/.bashrc ~/.bashrc
 rm ~/.vimrc; ln -sf ~/.dotfiles/.vimrc ~/.vimrc
 rm ~/.vim; ln -sf ~/.dotfiles/.vim ~/.vim

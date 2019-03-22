@@ -293,6 +293,7 @@ Plugin 'justinj/vim-react-snippets'
 Plugin 'rhysd/vim-clang-format'
 Plugin 'sbdchd/neoformat'
 Plugin 'isRuslan/vim-es6'
+Plugin 'lervag/vimtex'
 call vundle#end()
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
