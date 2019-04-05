@@ -19,9 +19,9 @@ Context for [SLIME](https://en.wikipedia.org/wiki/SLIME):
     Vim-slime is a humble attempt at getting _some_ of these features into Vim.
     It works with any REPL and isn't tied to Lisp.
 
-Grab some text and send it to a [GNU Screen](http://www.gnu.org/software/screen/) / [tmux](https://tmux.github.io/) / [whimrepl](https://github.com/malyn/lein-whimrepl) / [ConEmu](http://conemu.github.io/) session.
+Grab some text and send it to a [GNU Screen](http://www.gnu.org/software/screen/) / [tmux](https://tmux.github.io/) / [whimrepl](https://github.com/malyn/lein-whimrepl) / [ConEmu](http://conemu.github.io/) session / NeoVim Terminal / Vim Terminal
 
-    VIM ---(text)---> screen / tmux / whimrepl / ConEmu
+    VIM ---(text)---> screen / tmux / whimrepl / ConEmu / NeoVim Terminal / Vim Terminal
 
 Presumably, your session contains a [REPL](http://en.wikipedia.org/wiki/REPL), maybe Clojure, R or python. If you can type text into it, vim-slime can send text to it.
 
@@ -126,17 +126,36 @@ tmux target pane:
 
 Note that all of these ordinals are 0-indexed by default.
 
-    ":"     means current window, current pane (a reasonable default)
-    ":i"    means the ith window, current pane
-    ":i.j"  means the ith window, jth pane
-    "h:i.j" means the tmux session where h is the session identifier
-            (either session name or number), the ith window and the jth pane
-    "%i"    means i refers the pane's unique id
+    ":"       means current window, current pane (a reasonable default)
+    ":i"      means the ith window, current pane
+    ":i.j"    means the ith window, jth pane
+    "h:i.j"   means the tmux session where h is the session identifier
+              (either session name or number), the ith window and the jth pane
+    "%i"      means i refers the pane's unique id
+    "{token}" one of tmux's supported special tokens, like "{right-of}"
 
 You can configure the defaults for these options. If you generally run vim in
 a split tmux window with a REPL in the other pane:
 
-    let g:slime_default_config = {"socket_name": split($TMUX, ",")[0], "target_pane": ":.2"}
+    let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": ":.2"}
+
+Or more reliably by employing [a special token][right-of] as pane index:
+
+    let g:slime_default_config = {"socket_name": "default", "target_pane": "{right-of}"}
+
+[right-of]: http://man.openbsd.org/OpenBSD-current/man1/tmux.1#_right-of_
+
+### kitty
+
+kitty is *not* the default, to use it you will have to add this line to your .vimrc:
+
+    let g:slime_target = "kitty"
+
+When you invoke vim-slime for the first time, you will be prompted for more configuration.
+
+kitty target window
+
+    This is the id of the kitty window that you wish to target. See e.g. the value of $KITTY_WINDOW_ID in the target window.
 
 ### whimrepl
 
@@ -170,6 +189,38 @@ By default the windows clipboard is used to pass the text to ConEmu. If you
 experience issues with this, make sure the `conemuc` executable is in your
 `path`.
 
+### Vim :terminal
+
+Vim :terminal is *not* the default, to use it you will have to add this line to your .vimrc:
+
+    let g:slime_target = "vimterminal"
+
+When you invoke vim-slime for the first time, you will be prompted for more
+configuration.
+
+Vim terminal configuration can be set by using the following in your .vimrc:
+
+    let g:slime_vimterminal_config = {options}
+
+You can specify if you have frequently used commands:
+
+    let g:slime_vimterminal_cmd = "command"
+
+If you use Node, set it as follows:
+
+    let g:slime_vimterminal_cmd = "node"
+
+for possible options, see :help term_start()
+
+### NeoVim terminal
+
+NeoVim :terminal is *not* the default, to use it you will have to add this line to your .vimrc:
+
+    let g:slime_target = "neovim"
+
+When you invoke vim-slime for the first time, you will be prompted for more
+configuration.
+
 Advanced Configuration
 ----------------------
 
@@ -188,7 +239,7 @@ The default mappings are:
 If you want vim-slime to prefill the prompt answers, you can set a default configuration:
 
     " screen:
-    let b:slime_default_config = {"sessionname": "xxx", "windowname": "0"}
+    let g:slime_default_config = {"sessionname": "xxx", "windowname": "0"}
 
     " tmux:
     let g:slime_default_config = {"socket_name": "default", "target_pane": "1"}
