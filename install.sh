@@ -7,3 +7,5 @@ rm ~/.zshrc; ln -sf ~/.dotfiles/.zshrc ~/.zshrc
 rm ~/.gitconfig; ln -sf ~/.dotfiles/.gitconfig ~/.gitconfig
 rm ~/.oh-my-zsh; ln -sf ~/.dotfiles/oh-my-zsh ~/.oh-my-zsh
 rm -rf ~/.newsbeuter; ln -sf ~/.dotfiles/.newsbeuter ~/.newsbeuter
+rm -rf ~/.jshintrc; ln -sf ~/.dotfiles/jshintrc ~/.jshintrc
+rm -rf ~/.tern-project; ln -sf ~/.dotfiles/.tern-project ~/.tern-project
