@@ -301,9 +301,12 @@ Plugin 'Shougo/neosnippet-snippets'
 Plugin 'carlitux/deoplete-ternjs'
 Plugin 'deoplete-plugins/deoplete-jedi'
 Plugin 'Shougo/deoplete-clangx'
+Plugin 'neomake/neomake'
+Plugin 'w0rp/ale'
 call vundle#end()
 
 let g:deoplete#enable_at_startup = 1
+call neomake#configure#automake('w')
 
 " Plugin key-mappings.
 " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
