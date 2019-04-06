@@ -1,3 +1,5 @@
+virtualenv ~/.neovimpython
+npm install -g tern
 rm ~/.config; ln -sf ~/.dotfiles/.config ~/.config
 rm ~/.bashrc; ln -sf ~/.dotfiles/.bashrc ~/.bashrc
 rm ~/.vimrc; ln -sf ~/.dotfiles/.vimrc ~/.vimrc

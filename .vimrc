@@ -300,6 +300,7 @@ Plugin 'Shougo/neosnippet.vim'
 Plugin 'Shougo/neosnippet-snippets'
 Plugin 'carlitux/deoplete-ternjs'
 Plugin 'deoplete-plugins/deoplete-jedi'
+Plugin 'Shougo/deoplete-clangx'
 call vundle#end()
 
 let g:deoplete#enable_at_startup = 1
@@ -320,6 +321,11 @@ let g:clang_format#style_options = {
 let g:slime_target = "tmux"
 let g:ycm_python_binary_path = 'python3'
 set runtimepath+=~/.vim/bundle/vundle/
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => DEOPLETE/NEOSNIPPET CONFIGURATION
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Set bin if you have many instalations
 let g:deoplete#sources#ternjs#timeout = 1
@@ -370,3 +376,10 @@ let g:deoplete#sources#ternjs#include_keywords = 1
 let g:deoplete#sources#ternjs#in_literal = 0
 
 let g:python3_host_prog = '/Users/sweaver/.neovimpython/bin/python'
+
+" Change clang binary path
+call deoplete#custom#var('clangx', 'clang_binary', '/usr/local/bin/clang')
+
+" Change clang options
+call deoplete#custom#var('clangx', 'default_c_options', '')
+call deoplete#custom#var('clangx', 'default_cpp_options', '')
