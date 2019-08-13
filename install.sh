@@ -1,3 +1,4 @@
+git submodule init && git submodule update
 virtualenv ~/.neovimpython
 npm install -g tern
 rm ~/.config; ln -sf ~/.dotfiles/.config ~/.config
