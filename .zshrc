@@ -8,6 +8,8 @@ alias history='history 1'
 alias sw='ssh ssh.phx.nearlyfreespeech.net -l maximumsteve_stevenweaver'
 alias ssh='ssh -A'
 alias vim='nvim'
+alias jq='jq -C'
+alias less='less -R'
 
 if [ `uname` = "Darwin" ]; then
   alias make="make -j `sysctl -n hw.ncpu`"

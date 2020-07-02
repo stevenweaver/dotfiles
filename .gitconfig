@@ -25,3 +25,8 @@
 	autocrlf = false
 [http]
 	sslVerify = false
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f

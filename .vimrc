@@ -265,6 +265,8 @@ let Grep_Skip_Dirs = 'RCS CVS SCCS .git generated'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <leader>pp :setlocal paste!<cr>
 
+filetype off
+
 " Vundles
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -294,9 +296,9 @@ Plugin 'rhysd/vim-clang-format'
 Plugin 'sbdchd/neoformat'
 Plugin 'isRuslan/vim-es6'
 Plugin 'lervag/vimtex'
-Plugin 'Shougo/deoplete.nvim'
 Plugin 'roxma/nvim-yarp'
 Plugin 'roxma/vim-hug-neovim-rpc'
+Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plugin 'Shougo/neosnippet.vim'
 Plugin 'Shougo/neosnippet-snippets'
 Plugin 'carlitux/deoplete-ternjs'
@@ -304,6 +306,8 @@ Plugin 'deoplete-plugins/deoplete-jedi'
 Plugin 'Shougo/deoplete-clangx'
 Plugin 'neomake/neomake'
 Plugin 'w0rp/ale'
+Plugin 'tomlion/vim-solidity'
+Plugin 'kassio/neoterm'
 call vundle#end()
 
 let g:deoplete#enable_at_startup = 1
