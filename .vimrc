@@ -300,6 +300,8 @@ Plugin 'neomake/neomake'
 Plugin 'w0rp/ale'
 Plugin 'tomlion/vim-solidity'
 Plugin 'kassio/neoterm'
+Plugin 'Shougo/neosnippet.vim'
+Plugin 'Shougo/neosnippet-snippets'
 call vundle#end()
 
 call neomake#configure#automake('w')
