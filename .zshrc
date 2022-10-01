@@ -88,7 +88,9 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=/usr/local/texlive/2016/bin/x86_64-darwin/:$PATH
 export PATH=/usr/local/Cellar/tmux/2.3_3/bin:$PATH 
-export PATH=/usr/local/opt/python/bin/:$PATH 
+export PATH=/opt/homebrew/bin/:/usr/local/opt/python/bin/:$PATH 
+export PATH=/$HOME/homebrew/bin/:/usr/local/opt/python/bin/:$PATH 
+export PATH=/Users/sweaver/.deno/bin:$PATH
 export GOPATH=$HOME/go
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -122,3 +124,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform
+export PATH=${PATH}:/Users/sweaver/edirect
+export NCBI_API_KEY=4a0e37b29aa409ed7bbb92a5a8951cddd109
