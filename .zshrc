@@ -91,6 +91,7 @@ export PATH=/usr/local/Cellar/tmux/2.3_3/bin:$PATH
 export PATH=/opt/homebrew/bin/:/usr/local/opt/python/bin/:$PATH 
 export PATH=/$HOME/homebrew/bin/:/usr/local/opt/python/bin/:$PATH 
 export PATH=/Users/sweaver/.deno/bin:$PATH
+export PATH=/Users/sweaver/.local/bin:$PATH
 export GOPATH=$HOME/go
 
 # export MANPATH="/usr/local/man:$MANPATH"

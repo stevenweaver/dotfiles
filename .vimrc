@@ -368,3 +368,6 @@ let g:python3_host_prog = '/Users/sweaver/.neovimpython/bin/python'
 " Change clang binary path
 
 " Change clang options
+"
+"
+
