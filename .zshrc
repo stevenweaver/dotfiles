@@ -5,7 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 
 # aliases
 alias history='history 1'
-alias sw='ssh ssh.phx.nearlyfreespeech.net -l maximumsteve_stevenweaver'
+alias sw='ssh ssh.nearlyfreespeech.net -l maximumsteve_stevenweaver'
 alias ssh='ssh -A'
 alias vim='nvim'
 alias jq='jq -C'
@@ -130,3 +130,20 @@ autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
 export PATH=${PATH}:/Users/sweaver/edirect
 export NCBI_API_KEY=4a0e37b29aa409ed7bbb92a5a8951cddd109
+source ~/.profile
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/sweaver/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/sweaver/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/sweaver/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/sweaver/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
